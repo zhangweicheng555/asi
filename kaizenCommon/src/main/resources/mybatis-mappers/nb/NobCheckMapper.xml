@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.kaizen.business.nb.dao.NobCheckMapper">
+  <resultMap id="BaseResultMap" type="com.boot.kaizen.business.nb.model.NobCheck">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="nodebid" jdbcType="VARCHAR" property="nodebid" />
+    <result column="jzname" jdbcType="VARCHAR" property="jzname" />
+    <result column="cellid" jdbcType="VARCHAR" property="cellid" />
+    <result column="checkperson" jdbcType="VARCHAR" property="checkperson" />
+    <result column="checkdate" jdbcType="VARCHAR" property="checkdate" />
+    <result column="checkcontent" jdbcType="VARCHAR" property="checkcontent" />
+    <result column="checkresult" jdbcType="VARCHAR" property="checkresult" />
+    <result column="checkbeizhu" jdbcType="VARCHAR" property="checkbeizhu" />
+    <result column="checkjielun" jdbcType="VARCHAR" property="checkjielun" />
+    <result column="removedate" jdbcType="VARCHAR" property="removedate" />
+    <result column="projId" jdbcType="INTEGER" property="projId" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  
+  
+  
+  <sql id="Base_Column_List">
+    id, nodebid, jzname, cellid, checkperson, checkdate, checkcontent, checkresult, checkbeizhu, 
+    checkjielun, removedate, projId, createTime
+  </sql>
+  
+  
+  
+  
+  <select id="find" resultMap="BaseResultMap">
+		select 
+	    <include refid="Base_Column_List" />
+	    from t_nbzdhc
+		where 1=1 
+		  
+		<if test="map.projId != null and map.projId != ''">
+            and projId = #{map.projId}
+        </if>
+        
+		<if test="map.nodebid != null and map.nodebid != ''">
+            and nodebid = #{map.nodebid}
+        </if>
+        
+		 order by createTime desc
+	</select>
+  
+  
+  
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_nbzdhc
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_nbzdhc
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  
+  
+  
+  
+  
+  
+  <insert id="insertSelective" parameterType="com.boot.kaizen.business.nb.model.NobCheck">
+    insert into t_nbzdhc
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="nodebid != null">
+        nodebid,
+      </if>
+      <if test="jzname != null">
+        jzname,
+      </if>
+      <if test="cellid != null">
+        cellid,
+      </if>
+      <if test="checkperson != null">
+        checkperson,
+      </if>
+      <if test="checkdate != null">
+        checkdate,
+      </if>
+      <if test="checkcontent != null">
+        checkcontent,
+      </if>
+      <if test="checkresult != null">
+        checkresult,
+      </if>
+      <if test="checkbeizhu != null">
+        checkbeizhu,
+      </if>
+      <if test="checkjielun != null">
+        checkjielun,
+      </if>
+      <if test="removedate != null">
+        removedate,
+      </if>
+      <if test="projId != null">
+        projId,
+      </if>
+      <if test="createTime != null">
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="nodebid != null">
+        #{nodebid,jdbcType=VARCHAR},
+      </if>
+      <if test="jzname != null">
+        #{jzname,jdbcType=VARCHAR},
+      </if>
+      <if test="cellid != null">
+        #{cellid,jdbcType=VARCHAR},
+      </if>
+      <if test="checkperson != null">
+        #{checkperson,jdbcType=VARCHAR},
+      </if>
+      <if test="checkdate != null">
+        #{checkdate,jdbcType=VARCHAR},
+      </if>
+      <if test="checkcontent != null">
+        #{checkcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="checkresult != null">
+        #{checkresult,jdbcType=VARCHAR},
+      </if>
+      <if test="checkbeizhu != null">
+        #{checkbeizhu,jdbcType=VARCHAR},
+      </if>
+      <if test="checkjielun != null">
+        #{checkjielun,jdbcType=VARCHAR},
+      </if>
+      <if test="removedate != null">
+        #{removedate,jdbcType=VARCHAR},
+      </if>
+      <if test="projId != null">
+        #{projId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  
+  
+  
+  
+  <update id="updateByPrimaryKeySelective" parameterType="com.boot.kaizen.business.nb.model.NobCheck">
+    update t_nbzdhc
+    <set>
+      <if test="nodebid != null">
+        nodebid = #{nodebid,jdbcType=VARCHAR},
+      </if>
+      <if test="jzname != null">
+        jzname = #{jzname,jdbcType=VARCHAR},
+      </if>
+      <if test="cellid != null">
+        cellid = #{cellid,jdbcType=VARCHAR},
+      </if>
+      <if test="checkperson != null">
+        checkperson = #{checkperson,jdbcType=VARCHAR},
+      </if>
+      <if test="checkdate != null">
+        checkdate = #{checkdate,jdbcType=VARCHAR},
+      </if>
+      <if test="checkcontent != null">
+        checkcontent = #{checkcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="checkresult != null">
+        checkresult = #{checkresult,jdbcType=VARCHAR},
+      </if>
+      <if test="checkbeizhu != null">
+        checkbeizhu = #{checkbeizhu,jdbcType=VARCHAR},
+      </if>
+      <if test="checkjielun != null">
+        checkjielun = #{checkjielun,jdbcType=VARCHAR},
+      </if>
+      <if test="removedate != null">
+        removedate = #{removedate,jdbcType=VARCHAR},
+      </if>
+      <if test="projId != null">
+        projId = #{projId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        createTime = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+</mapper>

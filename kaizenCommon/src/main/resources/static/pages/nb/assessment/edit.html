@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>修改计划表</title>
+<link rel="stylesheet" type="text/css" media="screen" href="../../../../css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="../../../../layui/css/layui.css">
+</head>
+<body>
+	
+	<form class="layui-form" lay-filter="formDemo"  id="formDemo" style="margin-top: 20px;">
+		<input type="hidden" id="id" name="id" />
+		<div class="layui-form-item">
+	    <label class="layui-form-label" style="width: 150px;">基站号</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="nodebid" id="nodebid"   required  lay-verify="required"  autocomplete="off" class="layui-input">
+	    </div>
+	    
+	    <label class="layui-form-label" style="width: 150px;">基站名称</label>
+	    <div class="layui-input-inline" >
+	      <input type="text" name="jzname" id="jzname"   required  lay-verify="required"  autocomplete="off" class="layui-input">
+	    </div>
+	  </div>
+	  
+	  <div class="layui-form-item">
+	    <label class="layui-form-label" style="width: 150px;">小区号</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="cellid" id="cellid"   autocomplete="off" required  lay-verify="required"  class="layui-input">
+	    </div>
+	   
+	    <label class="layui-form-label" style="width: 150px;"> 核查人</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="checkperson" id="checkperson"   autocomplete="off" class="layui-input">
+	    </div>
+	  </div>
+	  
+	  <div class="layui-form-item">
+	    <label class="layui-form-label" style="width: 150px;">核查日期</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="checkdate" id="checkdate"   autocomplete="off" class="layui-input">
+	    </div>
+
+	    <label class="layui-form-label" style="width: 150px;">核查内容</label>
+	     <div class="layui-input-inline">
+	    	  <select name="checkcontent" id="checkcontent" >
+		        <option value="告警">告警</option>
+		        <option value="驻波比">驻波比</option>
+		        <option value="上行RSSI">上行RSSI</option>
+		      </select>
+	    </div>
+	  </div>
+	  
+	  <div class="layui-form-item">
+	    <label class="layui-form-label" style="width: 150px;">核查结果</label>
+	   <div class="layui-input-inline">
+	    	  <select name="checkresult" id="checkresult" >
+		        <option value="正常">正常</option>
+		        <option value="不正常">不正常</option>
+		      </select>
+	    </div>
+
+	    <label class="layui-form-label" style="width: 150px;">备注</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="checkbeizhu" id="checkbeizhu"   autocomplete="off" class="layui-input">
+	    </div>
+	  </div>
+	  
+	  <div class="layui-form-item">
+	    <label class="layui-form-label" style="width: 150px;">结论</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="checkjielun" id="checkjielun"   autocomplete="off" class="layui-input">
+	    </div>
+
+	    <label class="layui-form-label" style="width: 150px;">异常消除日期</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="removedate" id="removedate"   autocomplete="off" class="layui-input">
+	    </div>
+	  </div>
+	  
+		<button class="layui-btn" id="formDemoBtn" style="display: none;" lay-submit lay-filter="formDemo">立即提交</button>
+	</form>
+	
+	
+	
+	
+	
+	<script type="text/javascript" src="../../../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../../../layui/layui.js"></script>
+	<script type="text/javascript" src="../../../../js/jq.js"></script>
+	
+<script>
+
+	var flag=false;
+	
+	
+	function submitForm(){
+		$("#formDemoBtn").click();
+		return flag;
+	 }
+	
+	
+	var form;
+	layui.use(['layer', 'form','jquery','laydate'], function(){
+	  var layer = layui.layer,form = layui.form,$=layui.jquery;
+	  var laydate = layui.laydate;
+	//监听提交
+	  form.on('submit(formDemo)', function(data){
+		flag=true;
+	    return false;
+	  });
+	
+	
+	  //初始化工作
+	  initData();
+	  function initData(){
+			var id=getUrlParam("id");
+			if(!id){
+				layer.msg('获取数据ID异常');
+				return;
+			}
+			$.ajax({
+				   type: "POST",url: "/nb/jzkc/findById",data: {"id":id},dataType:"json",
+				   success: function(msg){
+				     if(msg.success){
+				    	var obj=msg.object;
+				 		form.val("formDemo", obj);
+				     }else{
+				    	 layer.msg('返回修改数据信息异常');
+				     }
+				   }
+			});
+		};
+	});
+	
+	
+</script> 
+
+</body>
+</html>

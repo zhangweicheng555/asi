@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>添加工参表</title>
+<link rel="stylesheet" type="text/css" media="screen" href="../../../../css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="../../../../layui/css/layui.css">
+</head>
+<body>
+
+	
+	
+	<form class="layui-form"  id="formDemo" style="margin-top: 20px;">
+	
+	  <div class="layui-form-item">
+	    <label class="layui-form-label" style="width: 150px;">基站号</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="nodebid" id="nodebid"   required  lay-verify="required"  autocomplete="off" class="layui-input">
+	    </div>
+	    
+	    <label class="layui-form-label" style="width: 150px;">基站名称</label>
+	    <div class="layui-input-inline" >
+	      <input type="text" name="jzname" id="jzname"   required  lay-verify="required"  autocomplete="off" class="layui-input">
+	    </div>
+	  </div>
+	  
+	  <div class="layui-form-item">
+	    <label class="layui-form-label" style="width: 150px;">小区号</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="cellid" id="cellid"   autocomplete="off" required  lay-verify="required"  class="layui-input">
+	    </div>
+	   
+	    <label class="layui-form-label" style="width: 150px;">小区名称</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="cellname" id="cellname"   autocomplete="off" class="layui-input">
+	    </div>
+	  </div>
+	  
+	  <div class="layui-form-item">
+	    <label class="layui-form-label" style="width: 150px;">经度</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="longitude" id=longitude   autocomplete="off" class="layui-input">
+	    </div>
+
+	    <label class="layui-form-label" style="width: 150px;">纬度</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="latitude" id="latitude"   autocomplete="off" class="layui-input">
+	    </div>
+	  </div>
+	  
+	  <div class="layui-form-item">
+	    <label class="layui-form-label" style="width: 150px;">海拔</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="elevation" id="elevation"   autocomplete="off" class="layui-input">
+	    </div>
+
+	    <label class="layui-form-label" style="width: 150px;">TAC</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="tac" id="tac"   autocomplete="off" class="layui-input">
+	    </div>
+	  </div>
+	  
+	  <div class="layui-form-item">
+	    <label class="layui-form-label" style="width: 150px;">频点</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="fqpoint" id="fqpoint"   autocomplete="off" class="layui-input">
+	    </div>
+
+	    <label class="layui-form-label" style="width: 150px;">PCI</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="pci" id="pci"   autocomplete="off" class="layui-input">
+	    </div>
+	  </div>
+	  
+	  <div class="layui-form-item">
+	    <label class="layui-form-label" style="width: 150px;">RsPower</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="rspower" id="rspower"   autocomplete="off" class="layui-input">
+	    </div>
+
+	    <label class="layui-form-label" style="width: 150px;">天线挂高</label>
+	    <div class="layui-input-inline"> 
+	      <input type="text" name="txgg" id="txgg"     autocomplete="off" class="layui-input">
+	    </div>
+	  </div>
+	  
+	  <div class="layui-form-item">
+	    <label class="layui-form-label" style="width: 150px;">方向角</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="fxj" id="fxj" required   autocomplete="off" class="layui-input">
+	    </div>
+	    <label class="layui-form-label" style="width: 150px;">总下倾角</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="zxqj" id="zxqj" required   autocomplete="off" class="layui-input">
+	    </div>
+	  </div>
+	  
+	  <div class="layui-form-item">
+	    <label class="layui-form-label" style="width: 150px;">电下倾角</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="dxqj" id="dxqj" required   autocomplete="off" class="layui-input">
+	    </div>
+	    <label class="layui-form-label" style="width: 150px;">机械下倾角</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="jxxqj" id="jxxqj" required   autocomplete="off" class="layui-input">
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label" style="width: 150px;">配置名</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="finishflag" id="finishflag" required   autocomplete="off" class="layui-input">
+	    </div>
+	  </div>
+	  
+		<button class="layui-btn" id="formDemoBtn" style="display: none;" lay-submit lay-filter="formDemo">立即提交</button>
+	</form>
+	
+	
+	
+	
+	
+	<script type="text/javascript" src="../../../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../../../layui/layui.js"></script>
+	<script type="text/javascript" src="../../../../js/jq.js"></script>
+	
+<script>
+
+	var flag=false;
+	
+	
+	function submitForm(){
+		$("#formDemoBtn").click();
+		return flag;
+	 }
+	
+	
+	
+	layui.use(['layer', 'form','jquery','laydate'], function(){
+	  var layer = layui.layer,form = layui.form,$=layui.jquery;
+	  var laydate = layui.laydate;
+	//监听提交
+	  form.on('submit(formDemo)', function(data){
+		flag=true;
+	    return false;
+	  });
+	
+	});
+	
+</script> 
+
+</body>
+</html>

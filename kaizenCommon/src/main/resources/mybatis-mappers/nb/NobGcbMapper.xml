@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.kaizen.business.nb.dao.NobGcbMapper">
+  <resultMap id="BaseResultMap" type="com.boot.kaizen.business.nb.model.NobGcb">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="nodebid" jdbcType="VARCHAR" property="nodebid" />
+    <result column="jzname" jdbcType="VARCHAR" property="jzname" />
+    <result column="longitude" jdbcType="VARCHAR" property="longitude" />
+    <result column="latitude" jdbcType="VARCHAR" property="latitude" />
+    <result column="elevation" jdbcType="VARCHAR" property="elevation" />
+    <result column="tac" jdbcType="VARCHAR" property="tac" />
+    <result column="cellname" jdbcType="VARCHAR" property="cellname" />
+    <result column="cellid" jdbcType="VARCHAR" property="cellid" />
+    <result column="fqpoint" jdbcType="VARCHAR" property="fqpoint" />
+    <result column="pci" jdbcType="VARCHAR" property="pci" />
+    <result column="rspower" jdbcType="VARCHAR" property="rspower" />
+    <result column="txgg" jdbcType="VARCHAR" property="txgg" />
+    <result column="fxj" jdbcType="VARCHAR" property="fxj" />
+    <result column="zxqj" jdbcType="VARCHAR" property="zxqj" />
+    <result column="dxqj" jdbcType="VARCHAR" property="dxqj" />
+    <result column="jxxqj" jdbcType="VARCHAR" property="jxxqj" />
+    <result column="finishflag" jdbcType="VARCHAR" property="finishflag" />
+    
+    <result column="projId" jdbcType="INTEGER" property="projId" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+    
+  </resultMap>
+  
+  
+  <sql id="Base_Column_List">
+    id, nodebid, jzname, longitude, latitude, elevation, tac, cellname, cellid, fqpoint, 
+    pci, rspower, txgg, fxj, zxqj, dxqj, jxxqj, finishflag,projId,createTime
+  </sql>
+  
+  
+  
+  
+  
+  <select id="find" resultMap="BaseResultMap">
+		select 
+	    <include refid="Base_Column_List" />
+	    from t_nbgcb
+		where 1=1 
+		  
+		<if test="map.projId != null and map.projId != ''">
+            and projId = #{map.projId}
+        </if>
+        
+		<if test="map.nodebid != null and map.nodebid != ''">
+            and nodebid = #{map.nodebid}
+        </if>
+		<if test="map.cellid != null and map.cellid != ''">
+            and cellid = #{map.cellid}
+        </if>
+		<if test="map.cellname != null and map.cellname != ''">
+            and cellname = #{map.cellname}
+        </if>
+        
+		 order by createTime desc
+	</select>
+  
+  
+  
+  
+  
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_nbgcb
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  
+  
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_nbgcb
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  
+  
+  
+  
+  
+  
+  
+  <insert id="insertSelective" parameterType="com.boot.kaizen.business.nb.model.NobGcb">
+    insert into t_nbgcb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="nodebid != null">
+        nodebid,
+      </if>
+      <if test="jzname != null">
+        jzname,
+      </if>
+      <if test="longitude != null">
+        longitude,
+      </if>
+      <if test="latitude != null">
+        latitude,
+      </if>
+      <if test="elevation != null">
+        elevation,
+      </if>
+      <if test="tac != null">
+        tac,
+      </if>
+      <if test="cellname != null">
+        cellname,
+      </if>
+      <if test="cellid != null">
+        cellid,
+      </if>
+      <if test="fqpoint != null">
+        fqpoint,
+      </if>
+      <if test="pci != null">
+        pci,
+      </if>
+      <if test="rspower != null">
+        rspower,
+      </if>
+      <if test="txgg != null">
+        txgg,
+      </if>
+      <if test="fxj != null">
+        fxj,
+      </if>
+      <if test="zxqj != null">
+        zxqj,
+      </if>
+      <if test="dxqj != null">
+        dxqj,
+      </if>
+      <if test="jxxqj != null">
+        jxxqj,
+      </if>
+      <if test="finishflag != null">
+        finishflag,
+      </if>
+        <if test="projId != null">
+        projId,
+      </if>
+      <if test="createTime != null">
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="nodebid != null">
+        #{nodebid,jdbcType=VARCHAR},
+      </if>
+      <if test="jzname != null">
+        #{jzname,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="elevation != null">
+        #{elevation,jdbcType=VARCHAR},
+      </if>
+      <if test="tac != null">
+        #{tac,jdbcType=VARCHAR},
+      </if>
+      <if test="cellname != null">
+        #{cellname,jdbcType=VARCHAR},
+      </if>
+      <if test="cellid != null">
+        #{cellid,jdbcType=VARCHAR},
+      </if>
+      <if test="fqpoint != null">
+        #{fqpoint,jdbcType=VARCHAR},
+      </if>
+      <if test="pci != null">
+        #{pci,jdbcType=VARCHAR},
+      </if>
+      <if test="rspower != null">
+        #{rspower,jdbcType=VARCHAR},
+      </if>
+      <if test="txgg != null">
+        #{txgg,jdbcType=VARCHAR},
+      </if>
+      <if test="fxj != null">
+        #{fxj,jdbcType=VARCHAR},
+      </if>
+      <if test="zxqj != null">
+        #{zxqj,jdbcType=VARCHAR},
+      </if>
+      <if test="dxqj != null">
+        #{dxqj,jdbcType=VARCHAR},
+      </if>
+      <if test="jxxqj != null">
+        #{jxxqj,jdbcType=VARCHAR},
+      </if>
+      <if test="finishflag != null">
+        #{finishflag,jdbcType=VARCHAR},
+      </if>
+        <if test="projId != null">
+        #{projId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  
+  
+  
+  
+  <update id="updateByPrimaryKeySelective" parameterType="com.boot.kaizen.business.nb.model.NobGcb">
+    update t_nbgcb
+    <set>
+      <if test="nodebid != null">
+        nodebid = #{nodebid,jdbcType=VARCHAR},
+      </if>
+      <if test="jzname != null">
+        jzname = #{jzname,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        longitude = #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        latitude = #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="elevation != null">
+        elevation = #{elevation,jdbcType=VARCHAR},
+      </if>
+      <if test="tac != null">
+        tac = #{tac,jdbcType=VARCHAR},
+      </if>
+      <if test="cellname != null">
+        cellname = #{cellname,jdbcType=VARCHAR},
+      </if>
+      <if test="cellid != null">
+        cellid = #{cellid,jdbcType=VARCHAR},
+      </if>
+      <if test="fqpoint != null">
+        fqpoint = #{fqpoint,jdbcType=VARCHAR},
+      </if>
+      <if test="pci != null">
+        pci = #{pci,jdbcType=VARCHAR},
+      </if>
+      <if test="rspower != null">
+        rspower = #{rspower,jdbcType=VARCHAR},
+      </if>
+      <if test="txgg != null">
+        txgg = #{txgg,jdbcType=VARCHAR},
+      </if>
+      <if test="fxj != null">
+        fxj = #{fxj,jdbcType=VARCHAR},
+      </if>
+      <if test="zxqj != null">
+        zxqj = #{zxqj,jdbcType=VARCHAR},
+      </if>
+      <if test="dxqj != null">
+        dxqj = #{dxqj,jdbcType=VARCHAR},
+      </if>
+      <if test="jxxqj != null">
+        jxxqj = #{jxxqj,jdbcType=VARCHAR},
+      </if>
+      <if test="finishflag != null">
+        finishflag = #{finishflag,jdbcType=VARCHAR},
+      </if>
+      
+      <if test="projId != null">
+        projId = #{projId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        createTime = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  
+</mapper>

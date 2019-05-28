@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.kaizen.business.nb.dao.NobRoadInfoMapper">
+  <resultMap id="BaseResultMap" type="com.boot.kaizen.business.nb.model.NobRoadInfo">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="userId" jdbcType="INTEGER" property="userId" />
+    <result column="station_No" jdbcType="VARCHAR" property="station_No" />
+    <result column="rsrpImage" jdbcType="VARCHAR" property="rsrpImage" />
+    <result column="sinrImage" jdbcType="VARCHAR" property="sinrImage" />
+    <result column="pciImage" jdbcType="VARCHAR" property="pciImage" />
+    <result column="communityName" jdbcType="VARCHAR" property="communityName" />
+    <result column="picThresholdImage" jdbcType="VARCHAR" property="picThresholdImage" />
+    <result column="projId" jdbcType="INTEGER" property="projId" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="sinrThresholdImage" jdbcType="VARCHAR" property="sinrThresholdImage" />
+    <result column="rsrpThresholdImage" jdbcType="VARCHAR" property="rsrpThresholdImage" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.boot.kaizen.business.nb.model.NobRoadInfo">
+    <result column="rtlist" jdbcType="LONGVARCHAR" property="rtlist" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, userId, station_No, rsrpImage, sinrImage, pciImage, communityName, picThresholdImage, 
+    projId, createTime
+    ,rsrpThresholdImage,sinrThresholdImage
+  </sql>
+  <sql id="Blob_Column_List">
+    rtlist
+  </sql>
+  
+  
+  
+  
+  <select id="find" resultMap="BaseResultMap">
+		select 
+	    <include refid="Base_Column_List" />
+	    from t_nb_uproadinfo
+		where 1=1 
+		  
+		<if test="map.projId != null and map.projId != ''">
+            and projId = #{map.projId}
+        </if>
+        
+		<if test="map.nodebid != null and map.nodebid != ''">
+            and station_No = #{map.nodebid}
+        </if>
+        
+		 order by createTime desc
+	</select>
+  
+  
+  
+  
+  
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_nb_uproadinfo
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_nb_uproadinfo
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  
+  
+  
+  <insert id="insertSelective" parameterType="com.boot.kaizen.business.nb.model.NobRoadInfo">
+    insert into t_nb_uproadinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        userId,
+      </if>
+      <if test="station_No != null">
+        station_No,
+      </if>
+      <if test="rsrpImage != null">
+        rsrpImage,
+      </if>
+      <if test="sinrImage != null">
+        sinrImage,
+      </if>
+      <if test="pciImage != null">
+        pciImage,
+      </if>
+      <if test="communityName != null">
+        communityName,
+      </if>
+      <if test="picThresholdImage != null">
+        picThresholdImage,
+      </if>
+      <if test="projId != null">
+        projId,
+      </if>
+      <if test="createTime != null">
+        createTime,
+      </if>
+      <if test="rtlist != null">
+        rtlist,
+      </if>
+      
+      <if test="sinrThresholdImage != null">
+        sinrThresholdImage,
+      </if>
+      <if test="rsrpThresholdImage != null">
+        rsrpThresholdImage,
+      </if>
+      
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="station_No != null">
+        #{station_No,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrpImage != null">
+        #{rsrpImage,jdbcType=VARCHAR},
+      </if>
+      <if test="sinrImage != null">
+        #{sinrImage,jdbcType=VARCHAR},
+      </if>
+      <if test="pciImage != null">
+        #{pciImage,jdbcType=VARCHAR},
+      </if>
+      <if test="communityName != null">
+        #{communityName,jdbcType=VARCHAR},
+      </if>
+      <if test="picThresholdImage != null">
+        #{picThresholdImage,jdbcType=VARCHAR},
+      </if>
+      <if test="projId != null">
+        #{projId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rtlist != null">
+        #{rtlist,jdbcType=LONGVARCHAR},
+      </if>
+      
+       <if test="sinrThresholdImage != null">
+        #{sinrThresholdImage,jdbcType=VARCHAR},
+      </if>
+       <if test="rsrpThresholdImage != null">
+        #{rsrpThresholdImage,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  
+  
+  
+  <update id="updateByPrimaryKeySelective" parameterType="com.boot.kaizen.business.nb.model.NobRoadInfo">
+    update t_nb_uproadinfo
+    <set>
+      <if test="userId != null">
+        userId = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="station_No != null">
+        station_No = #{station_No,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrpImage != null">
+        rsrpImage = #{rsrpImage,jdbcType=VARCHAR},
+      </if>
+      <if test="sinrImage != null">
+        sinrImage = #{sinrImage,jdbcType=VARCHAR},
+      </if>
+      <if test="pciImage != null">
+        pciImage = #{pciImage,jdbcType=VARCHAR},
+      </if>
+      <if test="communityName != null">
+        communityName = #{communityName,jdbcType=VARCHAR},
+      </if>
+      <if test="picThresholdImage != null">
+        picThresholdImage = #{picThresholdImage,jdbcType=VARCHAR},
+      </if>
+      <if test="projId != null">
+        projId = #{projId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        createTime = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rtlist != null">
+        rtlist = #{rtlist,jdbcType=LONGVARCHAR},
+      </if>
+      
+      
+      <if test="sinrThresholdImage != null">
+        sinrThresholdImage = #{sinrThresholdImage,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrpThresholdImage != null">
+        rsrpThresholdImage = #{rsrpThresholdImage,jdbcType=VARCHAR},
+      </if>
+      
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+</mapper>

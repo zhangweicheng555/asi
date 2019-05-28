@@ -1,0 +1,931 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.kaizen.business.nb.dao.NobTestMapper">
+  <resultMap id="BaseResultMap" type="com.boot.kaizen.business.nb.model.NobTest">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="pzname" jdbcType="VARCHAR" property="pzname" />
+    <result column="cellid" jdbcType="VARCHAR" property="cellid" />
+    <result column="fqpoint" jdbcType="VARCHAR" property="fqpoint" />
+    <result column="pci" jdbcType="VARCHAR" property="pci" />
+    <result column="cellid1" jdbcType="VARCHAR" property="cellid1" />
+    <result column="fqpoint1" jdbcType="VARCHAR" property="fqpoint1" />
+    <result column="pci1" jdbcType="VARCHAR" property="pci1" />
+    <result column="rspower" jdbcType="VARCHAR" property="rspower" />
+    <result column="txgg" jdbcType="VARCHAR" property="txgg" />
+    <result column="fxj" jdbcType="VARCHAR" property="fxj" />
+    <result column="zxqj" jdbcType="VARCHAR" property="zxqj" />
+    <result column="dxqj" jdbcType="VARCHAR" property="dxqj" />
+    <result column="jxxqj" jdbcType="VARCHAR" property="jxxqj" />
+    <result column="rspower1" jdbcType="VARCHAR" property="rspower1" />
+    <result column="txgg1" jdbcType="VARCHAR" property="txgg1" />
+    <result column="fxj1" jdbcType="VARCHAR" property="fxj1" />
+    <result column="zxqj1" jdbcType="VARCHAR" property="zxqj1" />
+    <result column="dxqj1" jdbcType="VARCHAR" property="dxqj1" />
+    <result column="jxxqj1" jdbcType="VARCHAR" property="jxxqj1" />
+    <result column="attempt" jdbcType="VARCHAR" property="attempt" />
+    <result column="attsuccess" jdbcType="VARCHAR" property="attsuccess" />
+    <result column="attratio" jdbcType="VARCHAR" property="attratio" />
+    <result column="attempt1" jdbcType="VARCHAR" property="attempt1" />
+    <result column="attsuccess1" jdbcType="VARCHAR" property="attsuccess1" />
+    <result column="attratio1" jdbcType="VARCHAR" property="attratio1" />
+    <result column="xqcxcs" jdbcType="VARCHAR" property="xqcxcs" />
+    <result column="xqcxcgcs" jdbcType="VARCHAR" property="xqcxcgcs" />
+    <result column="xqcxcgl" jdbcType="VARCHAR" property="xqcxcgl" />
+    <result column="xqcxcs1" jdbcType="VARCHAR" property="xqcxcs1" />
+    <result column="xqcxcgcs1" jdbcType="VARCHAR" property="xqcxcgcs1" />
+    <result column="xqcxcgl1" jdbcType="VARCHAR" property="xqcxcgl1" />
+    <result column="rrcljcs" jdbcType="VARCHAR" property="rrcljcs" />
+    <result column="rrcljcgcs" jdbcType="VARCHAR" property="rrcljcgcs" />
+    <result column="rrcljcgl" jdbcType="VARCHAR" property="rrcljcgl" />
+    <result column="rrcljcs1" jdbcType="VARCHAR" property="rrcljcs1" />
+    <result column="rrcljcgcs1" jdbcType="VARCHAR" property="rrcljcgcs1" />
+    <result column="rrcljcgl1" jdbcType="VARCHAR" property="rrcljcgl1" />
+    <result column="pingatt" jdbcType="VARCHAR" property="pingatt" />
+    <result column="pingsucc" jdbcType="VARCHAR" property="pingsucc" />
+    <result column="pingratio" jdbcType="VARCHAR" property="pingratio" />
+    <result column="pindelay" jdbcType="VARCHAR" property="pindelay" />
+    <result column="pingatt1" jdbcType="VARCHAR" property="pingatt1" />
+    <result column="pingsucc1" jdbcType="VARCHAR" property="pingsucc1" />
+    <result column="pingratio1" jdbcType="VARCHAR" property="pingratio1" />
+    <result column="pindelay1" jdbcType="VARCHAR" property="pindelay1" />
+    <result column="sxsl" jdbcType="VARCHAR" property="sxsl" />
+    <result column="xxsl" jdbcType="VARCHAR" property="xxsl" />
+    <result column="macsxsl" jdbcType="VARCHAR" property="macsxsl" />
+    <result column="macxxsl" jdbcType="VARCHAR" property="macxxsl" />
+    <result column="sxsl1" jdbcType="VARCHAR" property="sxsl1" />
+    <result column="xxsl1" jdbcType="VARCHAR" property="xxsl1" />
+    <result column="macsxsl1" jdbcType="VARCHAR" property="macsxsl1" />
+    <result column="macxxsl1" jdbcType="VARCHAR" property="macxxsl1" />
+    <result column="wirelesscount" jdbcType="VARCHAR" property="wirelesscount" />
+    <result column="avgrsrp" jdbcType="VARCHAR" property="avgrsrp" />
+    <result column="avgsinr" jdbcType="VARCHAR" property="avgsinr" />
+    <result column="wirelesscount1" jdbcType="VARCHAR" property="wirelesscount1" />
+    <result column="avgrsrp1" jdbcType="VARCHAR" property="avgrsrp1" />
+    <result column="avgsinr1" jdbcType="VARCHAR" property="avgsinr1" />
+    <result column="mupSize" jdbcType="VARCHAR" property="mupSize" />
+    <result column="mupCount" jdbcType="VARCHAR" property="mupCount" />
+    <result column="mupIP" jdbcType="VARCHAR" property="mupIP" />
+    <result column="mupPort" jdbcType="VARCHAR" property="mupPort" />
+    <result column="mupSize1" jdbcType="VARCHAR" property="mupSize1" />
+    <result column="mupCount1" jdbcType="VARCHAR" property="mupCount1" />
+    <result column="mupIP1" jdbcType="VARCHAR" property="mupIP1" />
+    <result column="mupPort1" jdbcType="VARCHAR" property="mupPort1" />
+    <result column="mdownSize" jdbcType="VARCHAR" property="mdownSize" />
+    <result column="mdownCount" jdbcType="VARCHAR" property="mdownCount" />
+    <result column="mdownIP" jdbcType="VARCHAR" property="mdownIP" />
+    <result column="mdownPort" jdbcType="VARCHAR" property="mdownPort" />
+    <result column="mdownSize1" jdbcType="VARCHAR" property="mdownSize1" />
+    <result column="mdownCount1" jdbcType="VARCHAR" property="mdownCount1" />
+    <result column="mdownIP1" jdbcType="VARCHAR" property="mdownIP1" />
+    <result column="mdownPort1" jdbcType="VARCHAR" property="mdownPort1" />
+    <result column="mpingIP" jdbcType="VARCHAR" property="mpingIP" />
+    <result column="mpingSize" jdbcType="VARCHAR" property="mpingSize" />
+    <result column="mpingCount" jdbcType="VARCHAR" property="mpingCount" />
+    <result column="mpingInterval" jdbcType="VARCHAR" property="mpingInterval" />
+    <result column="mpingIP1" jdbcType="VARCHAR" property="mpingIP1" />
+    <result column="mpingSize1" jdbcType="VARCHAR" property="mpingSize1" />
+    <result column="mpingCount1" jdbcType="VARCHAR" property="mpingCount1" />
+    <result column="mpingInterval1" jdbcType="VARCHAR" property="mpingInterval1" />
+    <result column="projId" jdbcType="INTEGER" property="projId" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  
+  
+  <sql id="Base_Column_List">
+    id, pzname, cellid, fqpoint, pci, cellid1, fqpoint1, pci1, rspower, txgg, fxj, zxqj, 
+    dxqj, jxxqj, rspower1, txgg1, fxj1, zxqj1, dxqj1, jxxqj1, attempt, attsuccess, attratio, 
+    attempt1, attsuccess1, attratio1, xqcxcs, xqcxcgcs, xqcxcgl, xqcxcs1, xqcxcgcs1, 
+    xqcxcgl1, rrcljcs, rrcljcgcs, rrcljcgl, rrcljcs1, rrcljcgcs1, rrcljcgl1, pingatt, 
+    pingsucc, pingratio, pindelay, pingatt1, pingsucc1, pingratio1, pindelay1, sxsl, 
+    xxsl, macsxsl, macxxsl, sxsl1, xxsl1, macsxsl1, macxxsl1, wirelesscount, avgrsrp, 
+    avgsinr, wirelesscount1, avgrsrp1, avgsinr1, mupSize, mupCount, mupIP, mupPort, mupSize1, 
+    mupCount1, mupIP1, mupPort1, mdownSize, mdownCount, mdownIP, mdownPort, mdownSize1, 
+    mdownCount1, mdownIP1, mdownPort1, mpingIP, mpingSize, mpingCount, mpingInterval, 
+    mpingIP1, mpingSize1, mpingCount1, mpingInterval1, projId, createTime
+  </sql>
+  
+  
+  
+  <select id="find" resultMap="BaseResultMap">
+		select 
+	    <include refid="Base_Column_List" />
+	    from t_nbtest
+		where 1=1 
+		  
+		<if test="map.projId != null and map.projId != ''">
+            and projId = #{map.projId}
+        </if>
+		<if test="map.pzname != null and map.pzname != ''">
+            and pzname = #{map.pzname}
+        </if>
+		 order by createTime desc
+		 
+	</select>
+  
+  
+  
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_nbtest
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_nbtest
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  
+  
+  <insert id="insertSelective" parameterType="com.boot.kaizen.business.nb.model.NobTest">
+    insert into t_nbtest
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="pzname != null">
+        pzname,
+      </if>
+      <if test="cellid != null">
+        cellid,
+      </if>
+      <if test="fqpoint != null">
+        fqpoint,
+      </if>
+      <if test="pci != null">
+        pci,
+      </if>
+      <if test="cellid1 != null">
+        cellid1,
+      </if>
+      <if test="fqpoint1 != null">
+        fqpoint1,
+      </if>
+      <if test="pci1 != null">
+        pci1,
+      </if>
+      <if test="rspower != null">
+        rspower,
+      </if>
+      <if test="txgg != null">
+        txgg,
+      </if>
+      <if test="fxj != null">
+        fxj,
+      </if>
+      <if test="zxqj != null">
+        zxqj,
+      </if>
+      <if test="dxqj != null">
+        dxqj,
+      </if>
+      <if test="jxxqj != null">
+        jxxqj,
+      </if>
+      <if test="rspower1 != null">
+        rspower1,
+      </if>
+      <if test="txgg1 != null">
+        txgg1,
+      </if>
+      <if test="fxj1 != null">
+        fxj1,
+      </if>
+      <if test="zxqj1 != null">
+        zxqj1,
+      </if>
+      <if test="dxqj1 != null">
+        dxqj1,
+      </if>
+      <if test="jxxqj1 != null">
+        jxxqj1,
+      </if>
+      <if test="attempt != null">
+        attempt,
+      </if>
+      <if test="attsuccess != null">
+        attsuccess,
+      </if>
+      <if test="attratio != null">
+        attratio,
+      </if>
+      <if test="attempt1 != null">
+        attempt1,
+      </if>
+      <if test="attsuccess1 != null">
+        attsuccess1,
+      </if>
+      <if test="attratio1 != null">
+        attratio1,
+      </if>
+      <if test="xqcxcs != null">
+        xqcxcs,
+      </if>
+      <if test="xqcxcgcs != null">
+        xqcxcgcs,
+      </if>
+      <if test="xqcxcgl != null">
+        xqcxcgl,
+      </if>
+      <if test="xqcxcs1 != null">
+        xqcxcs1,
+      </if>
+      <if test="xqcxcgcs1 != null">
+        xqcxcgcs1,
+      </if>
+      <if test="xqcxcgl1 != null">
+        xqcxcgl1,
+      </if>
+      <if test="rrcljcs != null">
+        rrcljcs,
+      </if>
+      <if test="rrcljcgcs != null">
+        rrcljcgcs,
+      </if>
+      <if test="rrcljcgl != null">
+        rrcljcgl,
+      </if>
+      <if test="rrcljcs1 != null">
+        rrcljcs1,
+      </if>
+      <if test="rrcljcgcs1 != null">
+        rrcljcgcs1,
+      </if>
+      <if test="rrcljcgl1 != null">
+        rrcljcgl1,
+      </if>
+      <if test="pingatt != null">
+        pingatt,
+      </if>
+      <if test="pingsucc != null">
+        pingsucc,
+      </if>
+      <if test="pingratio != null">
+        pingratio,
+      </if>
+      <if test="pindelay != null">
+        pindelay,
+      </if>
+      <if test="pingatt1 != null">
+        pingatt1,
+      </if>
+      <if test="pingsucc1 != null">
+        pingsucc1,
+      </if>
+      <if test="pingratio1 != null">
+        pingratio1,
+      </if>
+      <if test="pindelay1 != null">
+        pindelay1,
+      </if>
+      <if test="sxsl != null">
+        sxsl,
+      </if>
+      <if test="xxsl != null">
+        xxsl,
+      </if>
+      <if test="macsxsl != null">
+        macsxsl,
+      </if>
+      <if test="macxxsl != null">
+        macxxsl,
+      </if>
+      <if test="sxsl1 != null">
+        sxsl1,
+      </if>
+      <if test="xxsl1 != null">
+        xxsl1,
+      </if>
+      <if test="macsxsl1 != null">
+        macsxsl1,
+      </if>
+      <if test="macxxsl1 != null">
+        macxxsl1,
+      </if>
+      <if test="wirelesscount != null">
+        wirelesscount,
+      </if>
+      <if test="avgrsrp != null">
+        avgrsrp,
+      </if>
+      <if test="avgsinr != null">
+        avgsinr,
+      </if>
+      <if test="wirelesscount1 != null">
+        wirelesscount1,
+      </if>
+      <if test="avgrsrp1 != null">
+        avgrsrp1,
+      </if>
+      <if test="avgsinr1 != null">
+        avgsinr1,
+      </if>
+      <if test="mupSize != null">
+        mupSize,
+      </if>
+      <if test="mupCount != null">
+        mupCount,
+      </if>
+      <if test="mupIP != null">
+        mupIP,
+      </if>
+      <if test="mupPort != null">
+        mupPort,
+      </if>
+      <if test="mupSize1 != null">
+        mupSize1,
+      </if>
+      <if test="mupCount1 != null">
+        mupCount1,
+      </if>
+      <if test="mupIP1 != null">
+        mupIP1,
+      </if>
+      <if test="mupPort1 != null">
+        mupPort1,
+      </if>
+      <if test="mdownSize != null">
+        mdownSize,
+      </if>
+      <if test="mdownCount != null">
+        mdownCount,
+      </if>
+      <if test="mdownIP != null">
+        mdownIP,
+      </if>
+      <if test="mdownPort != null">
+        mdownPort,
+      </if>
+      <if test="mdownSize1 != null">
+        mdownSize1,
+      </if>
+      <if test="mdownCount1 != null">
+        mdownCount1,
+      </if>
+      <if test="mdownIP1 != null">
+        mdownIP1,
+      </if>
+      <if test="mdownPort1 != null">
+        mdownPort1,
+      </if>
+      <if test="mpingIP != null">
+        mpingIP,
+      </if>
+      <if test="mpingSize != null">
+        mpingSize,
+      </if>
+      <if test="mpingCount != null">
+        mpingCount,
+      </if>
+      <if test="mpingInterval != null">
+        mpingInterval,
+      </if>
+      <if test="mpingIP1 != null">
+        mpingIP1,
+      </if>
+      <if test="mpingSize1 != null">
+        mpingSize1,
+      </if>
+      <if test="mpingCount1 != null">
+        mpingCount1,
+      </if>
+      <if test="mpingInterval1 != null">
+        mpingInterval1,
+      </if>
+      <if test="projId != null">
+        projId,
+      </if>
+      <if test="createTime != null">
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="pzname != null">
+        #{pzname,jdbcType=VARCHAR},
+      </if>
+      <if test="cellid != null">
+        #{cellid,jdbcType=VARCHAR},
+      </if>
+      <if test="fqpoint != null">
+        #{fqpoint,jdbcType=VARCHAR},
+      </if>
+      <if test="pci != null">
+        #{pci,jdbcType=VARCHAR},
+      </if>
+      <if test="cellid1 != null">
+        #{cellid1,jdbcType=VARCHAR},
+      </if>
+      <if test="fqpoint1 != null">
+        #{fqpoint1,jdbcType=VARCHAR},
+      </if>
+      <if test="pci1 != null">
+        #{pci1,jdbcType=VARCHAR},
+      </if>
+      <if test="rspower != null">
+        #{rspower,jdbcType=VARCHAR},
+      </if>
+      <if test="txgg != null">
+        #{txgg,jdbcType=VARCHAR},
+      </if>
+      <if test="fxj != null">
+        #{fxj,jdbcType=VARCHAR},
+      </if>
+      <if test="zxqj != null">
+        #{zxqj,jdbcType=VARCHAR},
+      </if>
+      <if test="dxqj != null">
+        #{dxqj,jdbcType=VARCHAR},
+      </if>
+      <if test="jxxqj != null">
+        #{jxxqj,jdbcType=VARCHAR},
+      </if>
+      <if test="rspower1 != null">
+        #{rspower1,jdbcType=VARCHAR},
+      </if>
+      <if test="txgg1 != null">
+        #{txgg1,jdbcType=VARCHAR},
+      </if>
+      <if test="fxj1 != null">
+        #{fxj1,jdbcType=VARCHAR},
+      </if>
+      <if test="zxqj1 != null">
+        #{zxqj1,jdbcType=VARCHAR},
+      </if>
+      <if test="dxqj1 != null">
+        #{dxqj1,jdbcType=VARCHAR},
+      </if>
+      <if test="jxxqj1 != null">
+        #{jxxqj1,jdbcType=VARCHAR},
+      </if>
+      <if test="attempt != null">
+        #{attempt,jdbcType=VARCHAR},
+      </if>
+      <if test="attsuccess != null">
+        #{attsuccess,jdbcType=VARCHAR},
+      </if>
+      <if test="attratio != null">
+        #{attratio,jdbcType=VARCHAR},
+      </if>
+      <if test="attempt1 != null">
+        #{attempt1,jdbcType=VARCHAR},
+      </if>
+      <if test="attsuccess1 != null">
+        #{attsuccess1,jdbcType=VARCHAR},
+      </if>
+      <if test="attratio1 != null">
+        #{attratio1,jdbcType=VARCHAR},
+      </if>
+      <if test="xqcxcs != null">
+        #{xqcxcs,jdbcType=VARCHAR},
+      </if>
+      <if test="xqcxcgcs != null">
+        #{xqcxcgcs,jdbcType=VARCHAR},
+      </if>
+      <if test="xqcxcgl != null">
+        #{xqcxcgl,jdbcType=VARCHAR},
+      </if>
+      <if test="xqcxcs1 != null">
+        #{xqcxcs1,jdbcType=VARCHAR},
+      </if>
+      <if test="xqcxcgcs1 != null">
+        #{xqcxcgcs1,jdbcType=VARCHAR},
+      </if>
+      <if test="xqcxcgl1 != null">
+        #{xqcxcgl1,jdbcType=VARCHAR},
+      </if>
+      <if test="rrcljcs != null">
+        #{rrcljcs,jdbcType=VARCHAR},
+      </if>
+      <if test="rrcljcgcs != null">
+        #{rrcljcgcs,jdbcType=VARCHAR},
+      </if>
+      <if test="rrcljcgl != null">
+        #{rrcljcgl,jdbcType=VARCHAR},
+      </if>
+      <if test="rrcljcs1 != null">
+        #{rrcljcs1,jdbcType=VARCHAR},
+      </if>
+      <if test="rrcljcgcs1 != null">
+        #{rrcljcgcs1,jdbcType=VARCHAR},
+      </if>
+      <if test="rrcljcgl1 != null">
+        #{rrcljcgl1,jdbcType=VARCHAR},
+      </if>
+      <if test="pingatt != null">
+        #{pingatt,jdbcType=VARCHAR},
+      </if>
+      <if test="pingsucc != null">
+        #{pingsucc,jdbcType=VARCHAR},
+      </if>
+      <if test="pingratio != null">
+        #{pingratio,jdbcType=VARCHAR},
+      </if>
+      <if test="pindelay != null">
+        #{pindelay,jdbcType=VARCHAR},
+      </if>
+      <if test="pingatt1 != null">
+        #{pingatt1,jdbcType=VARCHAR},
+      </if>
+      <if test="pingsucc1 != null">
+        #{pingsucc1,jdbcType=VARCHAR},
+      </if>
+      <if test="pingratio1 != null">
+        #{pingratio1,jdbcType=VARCHAR},
+      </if>
+      <if test="pindelay1 != null">
+        #{pindelay1,jdbcType=VARCHAR},
+      </if>
+      <if test="sxsl != null">
+        #{sxsl,jdbcType=VARCHAR},
+      </if>
+      <if test="xxsl != null">
+        #{xxsl,jdbcType=VARCHAR},
+      </if>
+      <if test="macsxsl != null">
+        #{macsxsl,jdbcType=VARCHAR},
+      </if>
+      <if test="macxxsl != null">
+        #{macxxsl,jdbcType=VARCHAR},
+      </if>
+      <if test="sxsl1 != null">
+        #{sxsl1,jdbcType=VARCHAR},
+      </if>
+      <if test="xxsl1 != null">
+        #{xxsl1,jdbcType=VARCHAR},
+      </if>
+      <if test="macsxsl1 != null">
+        #{macsxsl1,jdbcType=VARCHAR},
+      </if>
+      <if test="macxxsl1 != null">
+        #{macxxsl1,jdbcType=VARCHAR},
+      </if>
+      <if test="wirelesscount != null">
+        #{wirelesscount,jdbcType=VARCHAR},
+      </if>
+      <if test="avgrsrp != null">
+        #{avgrsrp,jdbcType=VARCHAR},
+      </if>
+      <if test="avgsinr != null">
+        #{avgsinr,jdbcType=VARCHAR},
+      </if>
+      <if test="wirelesscount1 != null">
+        #{wirelesscount1,jdbcType=VARCHAR},
+      </if>
+      <if test="avgrsrp1 != null">
+        #{avgrsrp1,jdbcType=VARCHAR},
+      </if>
+      <if test="avgsinr1 != null">
+        #{avgsinr1,jdbcType=VARCHAR},
+      </if>
+      <if test="mupSize != null">
+        #{mupSize,jdbcType=VARCHAR},
+      </if>
+      <if test="mupCount != null">
+        #{mupCount,jdbcType=VARCHAR},
+      </if>
+      <if test="mupIP != null">
+        #{mupIP,jdbcType=VARCHAR},
+      </if>
+      <if test="mupPort != null">
+        #{mupPort,jdbcType=VARCHAR},
+      </if>
+      <if test="mupSize1 != null">
+        #{mupSize1,jdbcType=VARCHAR},
+      </if>
+      <if test="mupCount1 != null">
+        #{mupCount1,jdbcType=VARCHAR},
+      </if>
+      <if test="mupIP1 != null">
+        #{mupIP1,jdbcType=VARCHAR},
+      </if>
+      <if test="mupPort1 != null">
+        #{mupPort1,jdbcType=VARCHAR},
+      </if>
+      <if test="mdownSize != null">
+        #{mdownSize,jdbcType=VARCHAR},
+      </if>
+      <if test="mdownCount != null">
+        #{mdownCount,jdbcType=VARCHAR},
+      </if>
+      <if test="mdownIP != null">
+        #{mdownIP,jdbcType=VARCHAR},
+      </if>
+      <if test="mdownPort != null">
+        #{mdownPort,jdbcType=VARCHAR},
+      </if>
+      <if test="mdownSize1 != null">
+        #{mdownSize1,jdbcType=VARCHAR},
+      </if>
+      <if test="mdownCount1 != null">
+        #{mdownCount1,jdbcType=VARCHAR},
+      </if>
+      <if test="mdownIP1 != null">
+        #{mdownIP1,jdbcType=VARCHAR},
+      </if>
+      <if test="mdownPort1 != null">
+        #{mdownPort1,jdbcType=VARCHAR},
+      </if>
+      <if test="mpingIP != null">
+        #{mpingIP,jdbcType=VARCHAR},
+      </if>
+      <if test="mpingSize != null">
+        #{mpingSize,jdbcType=VARCHAR},
+      </if>
+      <if test="mpingCount != null">
+        #{mpingCount,jdbcType=VARCHAR},
+      </if>
+      <if test="mpingInterval != null">
+        #{mpingInterval,jdbcType=VARCHAR},
+      </if>
+      <if test="mpingIP1 != null">
+        #{mpingIP1,jdbcType=VARCHAR},
+      </if>
+      <if test="mpingSize1 != null">
+        #{mpingSize1,jdbcType=VARCHAR},
+      </if>
+      <if test="mpingCount1 != null">
+        #{mpingCount1,jdbcType=VARCHAR},
+      </if>
+      <if test="mpingInterval1 != null">
+        #{mpingInterval1,jdbcType=VARCHAR},
+      </if>
+      <if test="projId != null">
+        #{projId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  
+  
+  <update id="updateByPrimaryKeySelective" parameterType="com.boot.kaizen.business.nb.model.NobTest">
+    update t_nbtest
+    <set>
+      <if test="pzname != null">
+        pzname = #{pzname,jdbcType=VARCHAR},
+      </if>
+      <if test="cellid != null">
+        cellid = #{cellid,jdbcType=VARCHAR},
+      </if>
+      <if test="fqpoint != null">
+        fqpoint = #{fqpoint,jdbcType=VARCHAR},
+      </if>
+      <if test="pci != null">
+        pci = #{pci,jdbcType=VARCHAR},
+      </if>
+      <if test="cellid1 != null">
+        cellid1 = #{cellid1,jdbcType=VARCHAR},
+      </if>
+      <if test="fqpoint1 != null">
+        fqpoint1 = #{fqpoint1,jdbcType=VARCHAR},
+      </if>
+      <if test="pci1 != null">
+        pci1 = #{pci1,jdbcType=VARCHAR},
+      </if>
+      <if test="rspower != null">
+        rspower = #{rspower,jdbcType=VARCHAR},
+      </if>
+      <if test="txgg != null">
+        txgg = #{txgg,jdbcType=VARCHAR},
+      </if>
+      <if test="fxj != null">
+        fxj = #{fxj,jdbcType=VARCHAR},
+      </if>
+      <if test="zxqj != null">
+        zxqj = #{zxqj,jdbcType=VARCHAR},
+      </if>
+      <if test="dxqj != null">
+        dxqj = #{dxqj,jdbcType=VARCHAR},
+      </if>
+      <if test="jxxqj != null">
+        jxxqj = #{jxxqj,jdbcType=VARCHAR},
+      </if>
+      <if test="rspower1 != null">
+        rspower1 = #{rspower1,jdbcType=VARCHAR},
+      </if>
+      <if test="txgg1 != null">
+        txgg1 = #{txgg1,jdbcType=VARCHAR},
+      </if>
+      <if test="fxj1 != null">
+        fxj1 = #{fxj1,jdbcType=VARCHAR},
+      </if>
+      <if test="zxqj1 != null">
+        zxqj1 = #{zxqj1,jdbcType=VARCHAR},
+      </if>
+      <if test="dxqj1 != null">
+        dxqj1 = #{dxqj1,jdbcType=VARCHAR},
+      </if>
+      <if test="jxxqj1 != null">
+        jxxqj1 = #{jxxqj1,jdbcType=VARCHAR},
+      </if>
+      <if test="attempt != null">
+        attempt = #{attempt,jdbcType=VARCHAR},
+      </if>
+      <if test="attsuccess != null">
+        attsuccess = #{attsuccess,jdbcType=VARCHAR},
+      </if>
+      <if test="attratio != null">
+        attratio = #{attratio,jdbcType=VARCHAR},
+      </if>
+      <if test="attempt1 != null">
+        attempt1 = #{attempt1,jdbcType=VARCHAR},
+      </if>
+      <if test="attsuccess1 != null">
+        attsuccess1 = #{attsuccess1,jdbcType=VARCHAR},
+      </if>
+      <if test="attratio1 != null">
+        attratio1 = #{attratio1,jdbcType=VARCHAR},
+      </if>
+      <if test="xqcxcs != null">
+        xqcxcs = #{xqcxcs,jdbcType=VARCHAR},
+      </if>
+      <if test="xqcxcgcs != null">
+        xqcxcgcs = #{xqcxcgcs,jdbcType=VARCHAR},
+      </if>
+      <if test="xqcxcgl != null">
+        xqcxcgl = #{xqcxcgl,jdbcType=VARCHAR},
+      </if>
+      <if test="xqcxcs1 != null">
+        xqcxcs1 = #{xqcxcs1,jdbcType=VARCHAR},
+      </if>
+      <if test="xqcxcgcs1 != null">
+        xqcxcgcs1 = #{xqcxcgcs1,jdbcType=VARCHAR},
+      </if>
+      <if test="xqcxcgl1 != null">
+        xqcxcgl1 = #{xqcxcgl1,jdbcType=VARCHAR},
+      </if>
+      <if test="rrcljcs != null">
+        rrcljcs = #{rrcljcs,jdbcType=VARCHAR},
+      </if>
+      <if test="rrcljcgcs != null">
+        rrcljcgcs = #{rrcljcgcs,jdbcType=VARCHAR},
+      </if>
+      <if test="rrcljcgl != null">
+        rrcljcgl = #{rrcljcgl,jdbcType=VARCHAR},
+      </if>
+      <if test="rrcljcs1 != null">
+        rrcljcs1 = #{rrcljcs1,jdbcType=VARCHAR},
+      </if>
+      <if test="rrcljcgcs1 != null">
+        rrcljcgcs1 = #{rrcljcgcs1,jdbcType=VARCHAR},
+      </if>
+      <if test="rrcljcgl1 != null">
+        rrcljcgl1 = #{rrcljcgl1,jdbcType=VARCHAR},
+      </if>
+      <if test="pingatt != null">
+        pingatt = #{pingatt,jdbcType=VARCHAR},
+      </if>
+      <if test="pingsucc != null">
+        pingsucc = #{pingsucc,jdbcType=VARCHAR},
+      </if>
+      <if test="pingratio != null">
+        pingratio = #{pingratio,jdbcType=VARCHAR},
+      </if>
+      <if test="pindelay != null">
+        pindelay = #{pindelay,jdbcType=VARCHAR},
+      </if>
+      <if test="pingatt1 != null">
+        pingatt1 = #{pingatt1,jdbcType=VARCHAR},
+      </if>
+      <if test="pingsucc1 != null">
+        pingsucc1 = #{pingsucc1,jdbcType=VARCHAR},
+      </if>
+      <if test="pingratio1 != null">
+        pingratio1 = #{pingratio1,jdbcType=VARCHAR},
+      </if>
+      <if test="pindelay1 != null">
+        pindelay1 = #{pindelay1,jdbcType=VARCHAR},
+      </if>
+      <if test="sxsl != null">
+        sxsl = #{sxsl,jdbcType=VARCHAR},
+      </if>
+      <if test="xxsl != null">
+        xxsl = #{xxsl,jdbcType=VARCHAR},
+      </if>
+      <if test="macsxsl != null">
+        macsxsl = #{macsxsl,jdbcType=VARCHAR},
+      </if>
+      <if test="macxxsl != null">
+        macxxsl = #{macxxsl,jdbcType=VARCHAR},
+      </if>
+      <if test="sxsl1 != null">
+        sxsl1 = #{sxsl1,jdbcType=VARCHAR},
+      </if>
+      <if test="xxsl1 != null">
+        xxsl1 = #{xxsl1,jdbcType=VARCHAR},
+      </if>
+      <if test="macsxsl1 != null">
+        macsxsl1 = #{macsxsl1,jdbcType=VARCHAR},
+      </if>
+      <if test="macxxsl1 != null">
+        macxxsl1 = #{macxxsl1,jdbcType=VARCHAR},
+      </if>
+      <if test="wirelesscount != null">
+        wirelesscount = #{wirelesscount,jdbcType=VARCHAR},
+      </if>
+      <if test="avgrsrp != null">
+        avgrsrp = #{avgrsrp,jdbcType=VARCHAR},
+      </if>
+      <if test="avgsinr != null">
+        avgsinr = #{avgsinr,jdbcType=VARCHAR},
+      </if>
+      <if test="wirelesscount1 != null">
+        wirelesscount1 = #{wirelesscount1,jdbcType=VARCHAR},
+      </if>
+      <if test="avgrsrp1 != null">
+        avgrsrp1 = #{avgrsrp1,jdbcType=VARCHAR},
+      </if>
+      <if test="avgsinr1 != null">
+        avgsinr1 = #{avgsinr1,jdbcType=VARCHAR},
+      </if>
+      <if test="mupSize != null">
+        mupSize = #{mupSize,jdbcType=VARCHAR},
+      </if>
+      <if test="mupCount != null">
+        mupCount = #{mupCount,jdbcType=VARCHAR},
+      </if>
+      <if test="mupIP != null">
+        mupIP = #{mupIP,jdbcType=VARCHAR},
+      </if>
+      <if test="mupPort != null">
+        mupPort = #{mupPort,jdbcType=VARCHAR},
+      </if>
+      <if test="mupSize1 != null">
+        mupSize1 = #{mupSize1,jdbcType=VARCHAR},
+      </if>
+      <if test="mupCount1 != null">
+        mupCount1 = #{mupCount1,jdbcType=VARCHAR},
+      </if>
+      <if test="mupIP1 != null">
+        mupIP1 = #{mupIP1,jdbcType=VARCHAR},
+      </if>
+      <if test="mupPort1 != null">
+        mupPort1 = #{mupPort1,jdbcType=VARCHAR},
+      </if>
+      <if test="mdownSize != null">
+        mdownSize = #{mdownSize,jdbcType=VARCHAR},
+      </if>
+      <if test="mdownCount != null">
+        mdownCount = #{mdownCount,jdbcType=VARCHAR},
+      </if>
+      <if test="mdownIP != null">
+        mdownIP = #{mdownIP,jdbcType=VARCHAR},
+      </if>
+      <if test="mdownPort != null">
+        mdownPort = #{mdownPort,jdbcType=VARCHAR},
+      </if>
+      <if test="mdownSize1 != null">
+        mdownSize1 = #{mdownSize1,jdbcType=VARCHAR},
+      </if>
+      <if test="mdownCount1 != null">
+        mdownCount1 = #{mdownCount1,jdbcType=VARCHAR},
+      </if>
+      <if test="mdownIP1 != null">
+        mdownIP1 = #{mdownIP1,jdbcType=VARCHAR},
+      </if>
+      <if test="mdownPort1 != null">
+        mdownPort1 = #{mdownPort1,jdbcType=VARCHAR},
+      </if>
+      <if test="mpingIP != null">
+        mpingIP = #{mpingIP,jdbcType=VARCHAR},
+      </if>
+      <if test="mpingSize != null">
+        mpingSize = #{mpingSize,jdbcType=VARCHAR},
+      </if>
+      <if test="mpingCount != null">
+        mpingCount = #{mpingCount,jdbcType=VARCHAR},
+      </if>
+      <if test="mpingInterval != null">
+        mpingInterval = #{mpingInterval,jdbcType=VARCHAR},
+      </if>
+      <if test="mpingIP1 != null">
+        mpingIP1 = #{mpingIP1,jdbcType=VARCHAR},
+      </if>
+      <if test="mpingSize1 != null">
+        mpingSize1 = #{mpingSize1,jdbcType=VARCHAR},
+      </if>
+      <if test="mpingCount1 != null">
+        mpingCount1 = #{mpingCount1,jdbcType=VARCHAR},
+      </if>
+      <if test="mpingInterval1 != null">
+        mpingInterval1 = #{mpingInterval1,jdbcType=VARCHAR},
+      </if>
+      <if test="projId != null">
+        projId = #{projId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        createTime = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  
+  
+</mapper>

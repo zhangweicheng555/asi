@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.kaizen.business.nb.dao.NobAssessmentMapper">
+  <resultMap id="BaseResultMap" type="com.boot.kaizen.business.nb.model.NobAssessment">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="userId" jdbcType="VARCHAR" property="userId" />
+    <result column="testDate" jdbcType="VARCHAR" property="testDate" />
+    <result column="station_No" jdbcType="VARCHAR" property="station_No" />
+    <result column="communityName" jdbcType="VARCHAR" property="communityName" />
+    <result column="wireless_RSRP" jdbcType="VARCHAR" property="wireless_RSRP" />
+    <result column="wireless_SINR" jdbcType="VARCHAR" property="wireless_SINR" />
+    <result column="near_RSRP" jdbcType="VARCHAR" property="near_RSRP" />
+    <result column="a_Attempts" jdbcType="VARCHAR" property="a_Attempts" />
+    <result column="a_Success" jdbcType="VARCHAR" property="a_Success" />
+    <result column="a_SuccessRatio" jdbcType="VARCHAR" property="a_SuccessRatio" />
+    <result column="c_ReElection" jdbcType="VARCHAR" property="c_ReElection" />
+    <result column="c_Success" jdbcType="VARCHAR" property="c_Success" />
+    <result column="c_ReElectionRatio" jdbcType="VARCHAR" property="c_ReElectionRatio" />
+    <result column="p_Pttempts" jdbcType="VARCHAR" property="p_Pttempts" />
+    <result column="p_success" jdbcType="VARCHAR" property="p_success" />
+    <result column="p_SuccessRadio" jdbcType="VARCHAR" property="p_SuccessRadio" />
+    <result column="p_Delay" jdbcType="VARCHAR" property="p_Delay" />
+    <result column="udp_UpRate" jdbcType="VARCHAR" property="udp_UpRate" />
+    <result column="udp_DownRate" jdbcType="VARCHAR" property="udp_DownRate" />
+    <result column="macUp" jdbcType="VARCHAR" property="macUp" />
+    <result column="macDown" jdbcType="VARCHAR" property="macDown" />
+    <result column="r_ReElectio" jdbcType="VARCHAR" property="r_ReElectio" />
+    <result column="r_Success" jdbcType="VARCHAR" property="r_Success" />
+    <result column="r_ReElectionRatio" jdbcType="VARCHAR" property="r_ReElectionRatio" />
+    <result column="cellId" jdbcType="VARCHAR" property="cellId" />
+    <result column="pci" jdbcType="VARCHAR" property="pci" />
+    <result column="frequency" jdbcType="VARCHAR" property="frequency" />
+    <result column="longitude" jdbcType="VARCHAR" property="longitude" />
+    <result column="latitude" jdbcType="VARCHAR" property="latitude" />
+    <result column="tac" jdbcType="VARCHAR" property="tac" />
+    <result column="projId" jdbcType="INTEGER" property="projId" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, userId, testDate, station_No, communityName, wireless_RSRP, wireless_SINR, near_RSRP, 
+    a_Attempts, a_Success, a_SuccessRatio, c_ReElection, c_Success, c_ReElectionRatio, 
+    p_Pttempts, p_success, p_SuccessRadio, p_Delay, udp_UpRate, udp_DownRate, macUp, 
+    macDown, r_ReElectio, r_Success, r_ReElectionRatio, cellId, pci, frequency, longitude, 
+    latitude, tac, projId, createTime
+  </sql>
+  
+  
+  
+  
+  <select id="find" resultMap="BaseResultMap">
+		select 
+	    <include refid="Base_Column_List" />
+	    from t_nb_assessment
+		where 1=1 
+		  
+		<if test="map.projId != null and map.projId != ''">
+            and projId = #{map.projId}
+        </if>
+        
+		<if test="map.nodebid != null and map.nodebid != ''">
+            and station_No = #{map.nodebid}
+        </if>
+        
+		<if test="map.cellname != null and map.cellname != ''">
+            and communityName = #{map.cellname}
+        </if>
+		 order by createTime desc
+	</select>
+  
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_nb_assessment
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_nb_assessment
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+ 
+  <insert id="insertSelective" parameterType="com.boot.kaizen.business.nb.model.NobAssessment">
+    insert into t_nb_assessment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        userId,
+      </if>
+      <if test="testDate != null">
+        testDate,
+      </if>
+      <if test="station_No != null">
+        station_No,
+      </if>
+      <if test="communityName != null">
+        communityName,
+      </if>
+      <if test="wireless_RSRP != null">
+        wireless_RSRP,
+      </if>
+      <if test="wireless_SINR != null">
+        wireless_SINR,
+      </if>
+      <if test="near_RSRP != null">
+        near_RSRP,
+      </if>
+      <if test="a_Attempts != null">
+        a_Attempts,
+      </if>
+      <if test="a_Success != null">
+        a_Success,
+      </if>
+      <if test="a_SuccessRatio != null">
+        a_SuccessRatio,
+      </if>
+      <if test="c_ReElection != null">
+        c_ReElection,
+      </if>
+      <if test="c_Success != null">
+        c_Success,
+      </if>
+      <if test="c_ReElectionRatio != null">
+        c_ReElectionRatio,
+      </if>
+      <if test="p_Pttempts != null">
+        p_Pttempts,
+      </if>
+      <if test="p_success != null">
+        p_success,
+      </if>
+      <if test="p_SuccessRadio != null">
+        p_SuccessRadio,
+      </if>
+      <if test="p_Delay != null">
+        p_Delay,
+      </if>
+      <if test="udp_UpRate != null">
+        udp_UpRate,
+      </if>
+      <if test="udp_DownRate != null">
+        udp_DownRate,
+      </if>
+      <if test="macUp != null">
+        macUp,
+      </if>
+      <if test="macDown != null">
+        macDown,
+      </if>
+      <if test="r_ReElectio != null">
+        r_ReElectio,
+      </if>
+      <if test="r_Success != null">
+        r_Success,
+      </if>
+      <if test="r_ReElectionRatio != null">
+        r_ReElectionRatio,
+      </if>
+      <if test="cellId != null">
+        cellId,
+      </if>
+      <if test="pci != null">
+        pci,
+      </if>
+      <if test="frequency != null">
+        frequency,
+      </if>
+      <if test="longitude != null">
+        longitude,
+      </if>
+      <if test="latitude != null">
+        latitude,
+      </if>
+      <if test="tac != null">
+        tac,
+      </if>
+      <if test="projId != null">
+        projId,
+      </if>
+      <if test="createTime != null">
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="testDate != null">
+        #{testDate,jdbcType=VARCHAR},
+      </if>
+      <if test="station_No != null">
+        #{station_No,jdbcType=VARCHAR},
+      </if>
+      <if test="communityName != null">
+        #{communityName,jdbcType=VARCHAR},
+      </if>
+      <if test="wireless_RSRP != null">
+        #{wireless_RSRP,jdbcType=VARCHAR},
+      </if>
+      <if test="wireless_SINR != null">
+        #{wireless_SINR,jdbcType=VARCHAR},
+      </if>
+      <if test="near_RSRP != null">
+        #{near_RSRP,jdbcType=VARCHAR},
+      </if>
+      <if test="a_Attempts != null">
+        #{a_Attempts,jdbcType=VARCHAR},
+      </if>
+      <if test="a_Success != null">
+        #{a_Success,jdbcType=VARCHAR},
+      </if>
+      <if test="a_SuccessRatio != null">
+        #{a_SuccessRatio,jdbcType=VARCHAR},
+      </if>
+      <if test="c_ReElection != null">
+        #{c_ReElection,jdbcType=VARCHAR},
+      </if>
+      <if test="c_Success != null">
+        #{c_Success,jdbcType=VARCHAR},
+      </if>
+      <if test="c_ReElectionRatio != null">
+        #{c_ReElectionRatio,jdbcType=VARCHAR},
+      </if>
+      <if test="p_Pttempts != null">
+        #{p_Pttempts,jdbcType=VARCHAR},
+      </if>
+      <if test="p_success != null">
+        #{p_success,jdbcType=VARCHAR},
+      </if>
+      <if test="p_SuccessRadio != null">
+        #{p_SuccessRadio,jdbcType=VARCHAR},
+      </if>
+      <if test="p_Delay != null">
+        #{p_Delay,jdbcType=VARCHAR},
+      </if>
+      <if test="udp_UpRate != null">
+        #{udp_UpRate,jdbcType=VARCHAR},
+      </if>
+      <if test="udp_DownRate != null">
+        #{udp_DownRate,jdbcType=VARCHAR},
+      </if>
+      <if test="macUp != null">
+        #{macUp,jdbcType=VARCHAR},
+      </if>
+      <if test="macDown != null">
+        #{macDown,jdbcType=VARCHAR},
+      </if>
+      <if test="r_ReElectio != null">
+        #{r_ReElectio,jdbcType=VARCHAR},
+      </if>
+      <if test="r_Success != null">
+        #{r_Success,jdbcType=VARCHAR},
+      </if>
+      <if test="r_ReElectionRatio != null">
+        #{r_ReElectionRatio,jdbcType=VARCHAR},
+      </if>
+      <if test="cellId != null">
+        #{cellId,jdbcType=VARCHAR},
+      </if>
+      <if test="pci != null">
+        #{pci,jdbcType=VARCHAR},
+      </if>
+      <if test="frequency != null">
+        #{frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="tac != null">
+        #{tac,jdbcType=VARCHAR},
+      </if>
+      <if test="projId != null">
+        #{projId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  
+  
+  
+  
+  <update id="updateByPrimaryKeySelective" parameterType="com.boot.kaizen.business.nb.model.NobAssessment">
+    update t_nb_assessment
+    <set>
+      <if test="userId != null">
+        userId = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="testDate != null">
+        testDate = #{testDate,jdbcType=VARCHAR},
+      </if>
+      <if test="station_No != null">
+        station_No = #{station_No,jdbcType=VARCHAR},
+      </if>
+      <if test="communityName != null">
+        communityName = #{communityName,jdbcType=VARCHAR},
+      </if>
+      <if test="wireless_RSRP != null">
+        wireless_RSRP = #{wireless_RSRP,jdbcType=VARCHAR},
+      </if>
+      <if test="wireless_SINR != null">
+        wireless_SINR = #{wireless_SINR,jdbcType=VARCHAR},
+      </if>
+      <if test="near_RSRP != null">
+        near_RSRP = #{near_RSRP,jdbcType=VARCHAR},
+      </if>
+      <if test="a_Attempts != null">
+        a_Attempts = #{a_Attempts,jdbcType=VARCHAR},
+      </if>
+      <if test="a_Success != null">
+        a_Success = #{a_Success,jdbcType=VARCHAR},
+      </if>
+      <if test="a_SuccessRatio != null">
+        a_SuccessRatio = #{a_SuccessRatio,jdbcType=VARCHAR},
+      </if>
+      <if test="c_ReElection != null">
+        c_ReElection = #{c_ReElection,jdbcType=VARCHAR},
+      </if>
+      <if test="c_Success != null">
+        c_Success = #{c_Success,jdbcType=VARCHAR},
+      </if>
+      <if test="c_ReElectionRatio != null">
+        c_ReElectionRatio = #{c_ReElectionRatio,jdbcType=VARCHAR},
+      </if>
+      <if test="p_Pttempts != null">
+        p_Pttempts = #{p_Pttempts,jdbcType=VARCHAR},
+      </if>
+      <if test="p_success != null">
+        p_success = #{p_success,jdbcType=VARCHAR},
+      </if>
+      <if test="p_SuccessRadio != null">
+        p_SuccessRadio = #{p_SuccessRadio,jdbcType=VARCHAR},
+      </if>
+      <if test="p_Delay != null">
+        p_Delay = #{p_Delay,jdbcType=VARCHAR},
+      </if>
+      <if test="udp_UpRate != null">
+        udp_UpRate = #{udp_UpRate,jdbcType=VARCHAR},
+      </if>
+      <if test="udp_DownRate != null">
+        udp_DownRate = #{udp_DownRate,jdbcType=VARCHAR},
+      </if>
+      <if test="macUp != null">
+        macUp = #{macUp,jdbcType=VARCHAR},
+      </if>
+      <if test="macDown != null">
+        macDown = #{macDown,jdbcType=VARCHAR},
+      </if>
+      <if test="r_ReElectio != null">
+        r_ReElectio = #{r_ReElectio,jdbcType=VARCHAR},
+      </if>
+      <if test="r_Success != null">
+        r_Success = #{r_Success,jdbcType=VARCHAR},
+      </if>
+      <if test="r_ReElectionRatio != null">
+        r_ReElectionRatio = #{r_ReElectionRatio,jdbcType=VARCHAR},
+      </if>
+      <if test="cellId != null">
+        cellId = #{cellId,jdbcType=VARCHAR},
+      </if>
+      <if test="pci != null">
+        pci = #{pci,jdbcType=VARCHAR},
+      </if>
+      <if test="frequency != null">
+        frequency = #{frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        longitude = #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        latitude = #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="tac != null">
+        tac = #{tac,jdbcType=VARCHAR},
+      </if>
+      <if test="projId != null">
+        projId = #{projId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        createTime = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+</mapper>

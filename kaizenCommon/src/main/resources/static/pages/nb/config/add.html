@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>添加测试配置项</title>
+<link rel="stylesheet" type="text/css" media="screen" href="../../../../css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="../../../../layui/css/layui.css">
+<style type="text/css">
+	.layui-input, .layui-select, .layui-textarea {
+    height: 30px;line-height: 1.3; line-height: 38px\9;border-width: 1px;
+    border-style: solid;background-color: #fff;border-radius: 2px;
+    }
+</style>
+</head>
+<body>
+	
+	<form class="layui-form"  id="formDemo" style="margin-top: 20px;">
+	
+	   <table class="layui-table">
+		    <colgroup>
+		      <col width="25%">
+		      <col width="25%">
+		      <col width="25%">
+		      <col  width="25%">
+		    </colgroup>
+		    <thead>
+		      <tr>
+		        <th style="text-align: center;">测试类别</th>
+		        <th style="text-align: center;">测试项</th>
+		        <th style="text-align: center;">配置项</th>
+		        <th style="text-align: center;">目标值</th>
+		      </tr> 
+		    </thead>
+		    <tbody>
+		      
+		      <tr>
+		        <td style="text-align: center;" rowspan="3">小区工程参数</td>
+		        <td style="text-align: center;">Cell ID</td>
+		        <td><input name="cellid" id="cellid" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="cellid1" id="cellid1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">频点</td>
+		        <td><input name="fqpoint" id="fqpoint" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="fqpoint1" id="fqpoint1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">PCI</td>
+		        <td><input name="pci" id="pci" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="pci1" id="pci1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      
+		      
+		      
+		      <tr>
+		        <td style="text-align: center;" rowspan="6">小区网优参数</td>
+		        <td style="text-align: center;">RsPower</td>
+		        <td><input name="rspower" id="rspower" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="rspower1" id="rspower1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">天线挂高</td>
+		        <td><input name="txgg" id="txgg" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="txgg1" id="txgg1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">方向角</td>
+		        <td><input name="fxj" id="fxj" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="fxj1" id="fxj1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">总下倾角</td>
+		        <td><input name="zxqj" id="zxqj" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="zxqj1" id="zxqj1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">电下倾角</td>
+		        <td><input name="dxqj" id="dxqj" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="dxqj1" id="dxqj1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">机械下倾角</td>
+		        <td><input name="jxxqj" id="jxxqj" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="jxxqj1" id="jxxqj1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      
+		      
+		      <tr>
+		        <td style="text-align: center;" rowspan="3">附着性能</td>
+		        <td style="text-align: center;">Attach attempts</td>
+		        <td><input name="attempt" id="attempt" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="attempt1" id="attempt1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">Attach success</td>
+		        <td><input name="attsuccess" id="attsuccess" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="attsuccess1" id="attsuccess1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">Attach Success Ratio</td>
+		        <td><input name="attratio" id="attratio" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="attratio1" id="attratio" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      
+		      
+		      
+		      <tr>
+		        <td style="text-align: center;" rowspan="3">重选性能</td>
+		        <td style="text-align: center;">小区重选次数</td>
+		        <td><input name="xqcxcs" id="xqcxcs" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="xqcxcs1" id="xqcxcs1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">小区重选成功次数</td>
+		        <td><input name="xqcxcgcs" id="xqcxcgcs" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="xqcxcgcs1" id="xqcxcgcs1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">小区重选成功率</td>
+		        <td><input name="xqcxcgl" id="xqcxcgl" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="xqcxcgl1" id="xqcxcgl1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      
+		      
+		      <tr>
+		        <td style="text-align: center;" rowspan="3">接入性能</td>
+		        <td style="text-align: center;">RRC连接次数</td>
+		        <td><input name="rrcljcs" id="rrcljcs" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="rrcljcs1" id="rrcljcs1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">RRC连接成功次数</td>
+		        <td><input name="rrcljcgcs" id="rrcljcgcs" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="rrcljcgcs1" id="rrcljcgcs1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">RRC连接成功率</td>
+		        <td><input name="rrcljcgl" id="rrcljcgl" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="rrcljcgl1" id="rrcljcgl1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      
+		      
+		      <tr>
+		        <td style="text-align: center;" rowspan="4">Ping性能</td>
+		        <td style="text-align: center;">Ping attempts</td>
+		        <td><input name="pingatt" id="pingatt" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="pingatt1" id="pingatt1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">Ping success</td>
+		        <td><input name="pingsucc" id="pingsucc" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="pingsucc1" id="pingsucc1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">Ping success Ratio</td>
+		        <td><input name="pingratio" id="pingratio" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="pingratio1" id="pingratio1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">Ping Delay</td>
+		        <td><input name="pindelay" id="pindelay" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="pindelay1" id="pindelay1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      
+		      <tr>
+		        <td style="text-align: center;" rowspan="4">吞吐率性能</td>
+		        <td style="text-align: center;">上行速率</td>
+		        <td><input name="sxsl" id="sxsl" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="sxsl1" id="sxsl1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">下行速率</td>
+		        <td><input name="xxsl" id="xxsl" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="xxsl1" id="xxsl1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">MAC层上行速率</td>
+		        <td><input name="macsxsl" id="macsxsl" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="macsxsl1" id="macsxsl1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">MAC层下行速率</td>
+		        <td><input name="macxxsl" id="macxxsl" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="macxxsl1" id="macxxsl1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      
+		      
+		      
+		      
+		      
+		      <tr>
+		        <td style="text-align: center;" rowspan="3">无线信号</td>
+		        <td style="text-align: center;">次数</td>
+		        <td><input name="wirelesscount" id="wirelesscount" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="wirelesscount1" id="wirelesscount1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">平均RSRP</td>
+		        <td><input name="avgrsrp" id="avgrsrp" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="avgrsrp1" id="avgrsrp1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">平均sinr</td>
+		        <td><input name="avgsinr" id="avgsinr" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="avgsinr1" id="avgsinr1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      
+		      
+		      <tr>
+		        <td style="text-align: center;" rowspan="4">上行配置参数</td>
+		        <td style="text-align: center;">发包大小</td>
+		        <td><input name="mupSize" id="mupSize" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="mupSize1" id="mupSize1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">发包次数</td>
+		        <td><input name="mupCount" id="mupCount" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="mupCount1" id="mupCount1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">服务器地址(ip)</td>
+		        <td><input name="mupIP" id="mupIP" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="mupIP1" id="mupIP1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">端口</td>
+		        <td><input name="mupPort" id="mupPort" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="mupPort1" id="mupPort1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      
+		      <tr>
+		        <td style="text-align: center;" rowspan="4">下行配置参数</td>
+		        <td style="text-align: center;">发包大小</td>
+		        <td><input name="mdownSize" id="mdownSize" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="mdownSize1" id="mdownSize1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">发包次数</td>
+		        <td><input name="mdownCount" id="mdownCount" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="mdownCount1" id="mdownCount1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">服务器地址(ip)</td>
+		        <td><input name="mdownIP" id="mdownIP" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="mdownIP1" id="mdownIP1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">端口</td>
+		        <td><input name="mdownPort" id="mdownPort" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="mdownPort1" id="mdownPort1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      
+		      <tr>
+		        <td style="text-align: center;" rowspan="4">Ping配置</td>
+		        <td style="text-align: center;">Ping地址</td>
+		        <td><input name="mpingIP" id="mpingIP" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="mpingIP1" id="mpingIP1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;"> 发送的数据包大小</td>
+		        <td><input name="mpingSize" id="mpingSize" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="mpingSize1" id="mpingSize1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">Ping次数</td>
+		        <td><input name="mpingCount" id="mpingCount" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="mpingCount1" id="mpingCount1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		      <tr>
+		        <td style="text-align: center;">发包间隔</td>
+		        <td><input name="mpingInterval" id="mpingInterval" class="layui-input" type="text" autocomplete="off" ></td>
+		        <td><input name="mpingInterval1" id="mpingInterval1" class="layui-input" type="text"  autocomplete="off" ></td>
+		      </tr>
+		     
+		      <tr>
+		        <td style="text-align: center;" rowspan="1">配置名</td>
+		        <td  colspan="3"><input name="pzname" id="pzname"    required  lay-verify="required"  class="layui-input" type="text" autocomplete="off" ></td>
+		      </tr>
+		      
+		    </tbody>
+		 </table>
+	  
+		<button class="layui-btn" id="formDemoBtn" style="display: none;" lay-submit lay-filter="formDemo">立即提交</button>
+	</form>
+	
+	
+	
+	
+	
+	<script type="text/javascript" src="../../../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../../../layui/layui.js"></script>
+	<script type="text/javascript" src="../../../../js/jq.js"></script>
+	
+<script>
+
+	var flag=false;
+	
+	
+	function submitForm(){
+		$("#formDemoBtn").click();
+		return flag;
+	 }
+	
+	
+	
+	layui.use(['layer', 'form','jquery','laydate'], function(){
+	  var layer = layui.layer,form = layui.form,$=layui.jquery;
+	  var laydate = layui.laydate;
+	//监听提交
+	  form.on('submit(formDemo)', function(data){
+		flag=true;
+	    return false;
+	  });
+	
+	});
+	
+</script> 
+
+</body>
+</html>

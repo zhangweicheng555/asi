@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.kaizen.business.nb.dao.NobPlanMapper">
+  <resultMap id="BaseResultMap" type="com.boot.kaizen.business.nb.model.NobPlan">
+    <id column="planeid" jdbcType="VARCHAR" property="planeid" />
+    <result column="nodebid" jdbcType="VARCHAR" property="nodebid" />
+    <result column="jzname" jdbcType="VARCHAR" property="jzname" />
+    <result column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="plantestengineer" jdbcType="VARCHAR" property="plantestengineer" />
+    <result column="plantestphone" jdbcType="VARCHAR" property="plantestphone" />
+    <result column="planbackendengineer" jdbcType="VARCHAR" property="planbackendengineer" />
+    <result column="planbackendphone" jdbcType="VARCHAR" property="planbackendphone" />
+    <result column="planetesttime" jdbcType="VARCHAR" property="planetesttime" />
+    <result column="planetestid" jdbcType="VARCHAR" property="planetestid" />
+    <result column="planetestcontent" jdbcType="VARCHAR" property="planetestcontent" />
+    <result column="checkresult" jdbcType="VARCHAR" property="checkresult" />
+    <result column="testresult" jdbcType="VARCHAR" property="testresult" />
+    <result column="docresult" jdbcType="VARCHAR" property="docresult" />
+    <result column="projId" jdbcType="INTEGER" property="projId" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  
+  
+  
+  <sql id="Base_Column_List">
+    planeid, nodebid, jzname, userid, plantestengineer, plantestphone, planbackendengineer, 
+    planbackendphone, planetesttime, planetestid, planetestcontent, checkresult, testresult, 
+    docresult, projId, createTime
+  </sql>
+  
+  
+  
+  
+  
+  <select id="find" resultMap="BaseResultMap">
+		select 
+	    <include refid="Base_Column_List" />
+	    from t_nbplan
+		where 1=1 
+		  
+		<if test="map.projId != null and map.projId != ''">
+            and projId = #{map.projId}
+        </if>
+        
+		<if test="map.nodebid != null and map.nodebid != ''">
+            and nodebid = #{map.nodebid}
+        </if>
+        
+		<if test="map.userid != null and map.userid != ''">
+            and userid = #{map.userid}
+        </if>
+        
+		<if test="map.planetesttime != null and map.planetesttime != ''">
+            and planetesttime = #{map.planetesttime}
+        </if>
+        
+		 order by createTime desc
+	</select>
+  
+  
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_nbplan
+    where planeid = #{planeid,jdbcType=VARCHAR}
+  </select>
+  
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_nbplan
+    where planeid = #{planeid,jdbcType=VARCHAR}
+  </delete>
+ 
+
+  <insert id="insertSelective" parameterType="com.boot.kaizen.business.nb.model.NobPlan">
+    insert into t_nbplan
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="planeid != null">
+        planeid,
+      </if>
+      <if test="nodebid != null">
+        nodebid,
+      </if>
+      <if test="jzname != null">
+        jzname,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="plantestengineer != null">
+        plantestengineer,
+      </if>
+      <if test="plantestphone != null">
+        plantestphone,
+      </if>
+      <if test="planbackendengineer != null">
+        planbackendengineer,
+      </if>
+      <if test="planbackendphone != null">
+        planbackendphone,
+      </if>
+      <if test="planetesttime != null">
+        planetesttime,
+      </if>
+      <if test="planetestid != null">
+        planetestid,
+      </if>
+      <if test="planetestcontent != null">
+        planetestcontent,
+      </if>
+      <if test="checkresult != null">
+        checkresult,
+      </if>
+      <if test="testresult != null">
+        testresult,
+      </if>
+      <if test="docresult != null">
+        docresult,
+      </if>
+      <if test="projId != null">
+        projId,
+      </if>
+      <if test="createTime != null">
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="planeid != null">
+        #{planeid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodebid != null">
+        #{nodebid,jdbcType=VARCHAR},
+      </if>
+      <if test="jzname != null">
+        #{jzname,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="plantestengineer != null">
+        #{plantestengineer,jdbcType=VARCHAR},
+      </if>
+      <if test="plantestphone != null">
+        #{plantestphone,jdbcType=VARCHAR},
+      </if>
+      <if test="planbackendengineer != null">
+        #{planbackendengineer,jdbcType=VARCHAR},
+      </if>
+      <if test="planbackendphone != null">
+        #{planbackendphone,jdbcType=VARCHAR},
+      </if>
+      <if test="planetesttime != null">
+        #{planetesttime,jdbcType=VARCHAR},
+      </if>
+      <if test="planetestid != null">
+        #{planetestid,jdbcType=VARCHAR},
+      </if>
+      <if test="planetestcontent != null">
+        #{planetestcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="checkresult != null">
+        #{checkresult,jdbcType=VARCHAR},
+      </if>
+      <if test="testresult != null">
+        #{testresult,jdbcType=VARCHAR},
+      </if>
+      <if test="docresult != null">
+        #{docresult,jdbcType=VARCHAR},
+      </if>
+      <if test="projId != null">
+        #{projId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  
+  
+  
+  
+  <update id="updateByPrimaryKeySelective" parameterType="com.boot.kaizen.business.nb.model.NobPlan">
+    update t_nbplan
+    <set>
+      <if test="nodebid != null">
+        nodebid = #{nodebid,jdbcType=VARCHAR},
+      </if>
+      <if test="jzname != null">
+        jzname = #{jzname,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="plantestengineer != null">
+        plantestengineer = #{plantestengineer,jdbcType=VARCHAR},
+      </if>
+      <if test="plantestphone != null">
+        plantestphone = #{plantestphone,jdbcType=VARCHAR},
+      </if>
+      <if test="planbackendengineer != null">
+        planbackendengineer = #{planbackendengineer,jdbcType=VARCHAR},
+      </if>
+      <if test="planbackendphone != null">
+        planbackendphone = #{planbackendphone,jdbcType=VARCHAR},
+      </if>
+      <if test="planetesttime != null">
+        planetesttime = #{planetesttime,jdbcType=VARCHAR},
+      </if>
+      <if test="planetestid != null">
+        planetestid = #{planetestid,jdbcType=VARCHAR},
+      </if>
+      <if test="planetestcontent != null">
+        planetestcontent = #{planetestcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="checkresult != null">
+        checkresult = #{checkresult,jdbcType=VARCHAR},
+      </if>
+      <if test="testresult != null">
+        testresult = #{testresult,jdbcType=VARCHAR},
+      </if>
+      <if test="docresult != null">
+        docresult = #{docresult,jdbcType=VARCHAR},
+      </if>
+      <if test="projId != null">
+        projId = #{projId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        createTime = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where planeid = #{planeid,jdbcType=VARCHAR}
+  </update>
+  
+  
+</mapper>

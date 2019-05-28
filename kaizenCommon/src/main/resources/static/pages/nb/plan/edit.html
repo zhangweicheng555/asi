@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>修改计划表</title>
+<link rel="stylesheet" type="text/css" media="screen" href="../../../../css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="../../../../layui/css/layui.css">
+</head>
+<body>
+	
+	<form class="layui-form" lay-filter="formDemo"  id="formDemo" style="margin-top: 20px;">
+		<input type="hidden" id="planeid" name="planeid" />
+		
+	  <div class="layui-form-item">
+	    <label class="layui-form-label" style="width: 150px;">基站号</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="nodebid" id="nodebid"   required  lay-verify="required"  autocomplete="off" class="layui-input">
+	    </div>
+	    
+	    <label class="layui-form-label" style="width: 150px;">基站名称</label>
+	    <div class="layui-input-inline" >
+	      <input type="text" name="jzname" id="jzname"   required  lay-verify="required"  autocomplete="off" class="layui-input">
+	    </div>
+	  </div>
+	  
+	  <div class="layui-form-item">
+	    <label class="layui-form-label" style="width: 150px;">登陆账号</label>
+	    <div class="layui-input-inline">
+	    	 <select name="userid" id="userid"  lay-verify="required">
+		      </select>
+	    </div>
+	   
+	    <label class="layui-form-label" style="width: 150px;">测试工程师</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="plantestengineer" id="plantestengineer"   autocomplete="off" class="layui-input">
+	    </div>
+	  </div>
+	  
+	  <div class="layui-form-item">
+	    <label class="layui-form-label" style="width: 150px;">工程师电话</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="plantestphone" id=plantestphone   autocomplete="off" class="layui-input">
+	    </div>
+
+	    <label class="layui-form-label" style="width: 150px;">后台工程师</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="planbackendengineer" id="planbackendengineer"   autocomplete="off" class="layui-input">
+	    </div>
+	  </div>
+	  
+	  <div class="layui-form-item">
+	    <label class="layui-form-label" style="width: 150px;">后台工程师电话</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="planbackendphone" id="planbackendphone"   autocomplete="off" class="layui-input">
+	    </div>
+
+	    <label class="layui-form-label" style="width: 150px;">测试时间</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="planetesttime" id="planetesttime"   autocomplete="off" class="layui-input">
+	    </div>
+	  </div>
+	  
+		<button class="layui-btn" id="formDemoBtn" style="display: none;" lay-submit lay-filter="formDemo">立即提交</button>
+		</form>
+	
+	
+	
+	
+	
+	<script type="text/javascript" src="../../../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../../../layui/layui.js"></script>
+	<script type="text/javascript" src="../../../../js/jq.js"></script>
+	
+<script>
+
+	var flag=false;
+	
+	
+	function submitForm(){
+		$("#formDemoBtn").click();
+		return flag;
+	 }
+	
+	
+	var form;
+	layui.use(['layer', 'form','jquery','laydate'], function(){
+	  var layer = layui.layer,form = layui.form,$=layui.jquery;
+	  var laydate = layui.laydate;
+	//监听提交
+	  form.on('submit(formDemo)', function(data){
+		flag=true;
+	    return false;
+	  });
+	
+	
+	  /**日期框*/
+	  laydate.render({
+	     elem: '#planetesttime'
+	    ,max: 0
+	    ,min: -60 //7天前
+	    ,max: 60 //7天后
+	    ,theme: 'molv'
+   	    ,done: function(val, date, endDate){
+   		 }
+	  });
+	
+	  
+	  //加载项目下的用户
+		$.ajax({
+			   type: "POST",url: "/nb/plan/queryLoginUser",data: {},dataType:"json",async : false,
+			   success: function(msg){
+			     if(msg.success){
+			    	var obj=msg.object;
+			    	if(obj !=null && obj.length>0){
+			    		var html="";
+						for(var i=0;i<obj.length;i++){
+							var data=obj[i];
+							html =html+'<option value="'+data.id+'">'+data.username+'</option>';
+						}
+						$("#userid").append(html);
+						form.render('select');
+			    	}
+			     }else{
+			    	 layer.msg('查询项目下的用户列表失败');
+			     }
+			   }
+		});
+	  
+	  //初始化工作
+	  initData();
+	  function initData(){
+			var id=getUrlParam("id");
+			if(!id){
+				layer.msg('获取数据ID异常');
+				return;
+			}
+			$.ajax({
+				   type: "POST",url: "/nb/plan/findById",data: {"id":id},dataType:"json",async : false,
+				   success: function(msg){
+				     if(msg.success){
+				    	var obj=msg.object;
+				 		form.val("formDemo", obj);
+				     }else{
+				    	 layer.msg('返回修改数据信息异常');
+				     }
+				   }
+			});
+		};
+	});
+	
+	
+</script> 
+
+</body>
+</html>
